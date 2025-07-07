@@ -283,3 +283,15 @@ h5{
     background-image: url(../categories-gtn.img);
 }
 
+.pagination {
+    display: flex;
+    position: absolute;
+    bottom: 0%;
+    left: 46%;
+    gap: 12px;
+    justify-content: center;
+}
+
+.disabled{
+    opacity: 0.2;
+}
