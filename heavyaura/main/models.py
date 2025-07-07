@@ -3,7 +3,7 @@ from django.urls import reverse
 
 class Category(models.Model):
     name = models.CharField(max_length=20, unique=True)
-    # slug преобразовывает name для генерации корректных ссылок (возводит всё в нижни регистр, заменяет пробелы на подчёркивания)
+    # slug преобразовывает name для генерации корректных ссылок (возводит всё в нижни регистр, заменяет пробелы на тире)
     slug = models.SlugField(max_length=20, unique=True)
 
 
