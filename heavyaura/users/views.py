@@ -9,7 +9,7 @@ from orders.models import Order, OrderItem
 
 def login(request):
     if request.method == 'POST':
-        form = UserLoginForm(data= request.POST)
+        form = UserLoginForm(data=request.POST)
         if form.is_valid():
             username = request.POST['username']
             password = request.POST['password']
@@ -24,14 +24,15 @@ def login(request):
 
 def registration(request):
     if request.method == 'POST':
-        form = UserRegistrationForm(data = request.POST)
+        form = UserRegistrationForm(data=request.POST)
         if form.is_valid():
             form.save()
             user = form.instance
-            auth.logim(request, user)
+            auth.login(request, user)
             messages.success(request, f'{user.username}, Successful registration')
             return HttpResponseRedirect(reverse("user:login"))
         else:
+           print("MISTAKE SOMEWHERE")
            form = UserRegistrationForm()
     return render (request, 'users/registration.html' )
 
